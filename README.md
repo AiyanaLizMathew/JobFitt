@@ -2,17 +2,13 @@
 ### http://athenajobfitt.herokuapp.com/index
 ![jobfit](Images/JobFit.png)
 
-
-### Our Team:
-
-* Aiyanna Liz Mathew	
-* Anu Khandelwal 
-* Aruna Amaresan	
-* Aswathy Mohan
-* Pallavi Donwad
-
 ### Overview
-Team Athena is looking to build a job fit recommender to indicate top highly likely position titles with mapping salary that would fit a given job seeker’s current skills, education, education level, years of experience and other factors. 
+JobFitt is an application that provides the ideal job titles and salary for the title across US for a user based on the skills, education and experience. 
+
+The user input is fed into a machine learning model that has been trained utilizing the O*NET Dataset for the entire US and a proprietary algorithm to find the best match of titles the user is best suited.
+
+The results for the user include the job title, core tasks, technologies needed and the salary for the recommended titles. Also, the latest trends for the year 2018, in terms of job growth, highest growing and declining jobs also has been displayed. 
+
 
 ### Business Problem
 With the changing technology trends with automation, analytics, cloud computing and machine learning becoming more popular, it is challenging currently for a fresh graduate or an experienced job seeker to understand the kinds of titles and salaries that would actually map to their current skills. They end-up feeding the same info to multiple sites and apply on different sites. 
@@ -24,41 +20,51 @@ It would help:
 
 Eventually, this would help the entire recruiting ecosystem that includes company career sites, job boards, applicant tracking systems, and staffing agencies to improve site engagement and candidate conversion.
 
-### Goal 
-The goal is to provide an app where a user would input info on skills, major, college (last attended), education level. These would form the independent X variables. Give this info, we would provide highly likelihood of title and salaries that map the user’s skills. This would be the dependent Y variables.
-
-To do this, the plan would be to train a model using random forest algorithm and/or clustering with datasets found and/or using API calls to provide highly likelihood of title and salaries that map the user’s skills. 
-
 ### Method to our Madness!
-*   Our goal is to first tackle sharing likely recommendation of title based on skills returned by user
-*   Steps 1: Predict a group of highly likely job titles based on users skills based on survey result - We use predict using KMeans Clustering neural network. 
-*   Step 2: We use our proprietery scoring  alogrithm to score user's level of education and experience again a preprocessed dataset from ONET with various education  and experinece level combiantion with weightage. 
-*   Step 3: Sort and Order title by highest score for user's education level and experience level 
-*   Step 4: Pull additiomal info like job description, technology skills, core tasks expected and alternative titles
-*   Step 5: Merge and Pull sorted data. 
-*   Step 6: Convert to dict and render in results page 
-*   Step 7: More logic to share the results and findings using D3, plotly and Chloropleth
+* Step 1: Complete the questionnaire with your
+    * Skills
+	* Education
+	* Work Experience
+	* Contact Information
+  The user input is stored into MongoDB.
+* Step 2: K-Means Clustering Machine Learning model processes the user input skills to predict a list of most likely job titles.
+* Step 3: The output from the model is passed into a scoring algorithm using weightages to score user’s education and experience against the preprocessed dataset from O*NET. 
+* Step 4:The list of predicted titles is sorted in descending order based on the scoring algorithm.
+* Step 5: Additional information such as job description, technology, skills, core tasks, expected and alternate titles is retrieved from the dataset for the sorted job titles and the output file is generated. 
+* Step 6: The output file is utilized to display the results and create visualizations using Plotly, D3 and SVG. 
 
 ### Tools and Technologies used: 
-*   Machine learning using KMeans, Random forest algorithm and Deep Machine learning using sklearn and pickle
-*   MongoDB for backend database
-*   Python, Pandas, json, ast, Flask, PyMongo for hosting app, routing endpoints and connecting with Mongo DB backend 
-*   JQuery AJAX to pass user input from client side to server side and get server response
-*   For Front-end – Powered with Bootstrap , CSS and visualization using plotly, chloropleth, D3 and SVG.
+*   Languages: Python, JavaScript, HTML/CSS
+*   Language Technologies: 
+    * Pandas 
+    * Flask-Python Application 
+    * PyMongo 
+    * JQuery AJAX(Pass user input from client side to server side and get response from server) 
+    * Bootstrap
+    * Plotly
+    * D3 and SVG 
+*   Machine Learning Algorithms using SkLearn and Pickle
+    * K-Means Clustering 
+    * Random Forest Algorithm 
+    * Deep Machine Learning 
+*   Database: MongoDB
 
 ### Dataset links and other links:
 The main datasets used: 
-*   https://www.onetcenter.org/research.html?c=KSA (ONET - Valid, Reliable and Current. Nation's primary source for occupation information)
-*   https://www.onetcenter.org/db_releases.html
-*   https://www.bls.gov
-*   https://www.glassdoor.com/research/data-sets/
+*   **O*Net Resource Center**
+    Available: https://www.onetcenter.org/db_releases.html
+*   **Bureau of Labor Statistics** 
+    Available: https://www.bls.gov
+*   **Glassdoor (2017) Local Pay Reports: Historical Data**
+    Available: https://www.glassdoor.com/research/data-sets/
+
 
 ### Our Takeaways
 1. Trends show that the Jobs are growing and we are looking to see more of robotics and automation replacing the secretary and admin jobs
 
 2. There is difference in job growth in numbers vs salary growth in those careers 
 
-3. Certian skills and jobs seem to indicate job patterns (geographically) where they seem to be spread 
+3. Certain skills and jobs seem to indicate job patterns (geographically) where they seem to be spread 
 
 ### KMeans Clustering
 
@@ -74,7 +80,6 @@ The main datasets used:
 
       ![jobfit](Images/kmeans.PNG)
 
-   ​
 
    #### Average silhouette method
 
@@ -85,18 +90,27 @@ The main datasets used:
 
 ### Why predict and scoring algorithm ?(Why not ML)
 
+The Machine Learning Algorithm did not provide the needed accuracy due to which we developed our own prediction algorithm. 
+
+The Accuracy obtained for different algorithms is as mentioned below:
 1. Deep Learning : Accuracy(18%)
 2. Random Forest: Accuracy(75%)
 
 ### Next Steps!
 
-*   Gather enough datasets to replace second step of our proprietery alogirthm with a Neural Network machine learning model like RandomForest and DML .
-*   For Current Trends - Do web scraping from other website to get news and show on trends page .
+*   Gather and create a large datasets to replace second step of our proprietery alogirthm with a Neural Network machine learning model like RandomForest and Deep Machine Learning.
+*   For Current Trends - Do web scraping from other website to get news and show on trends page.
 *   Provide Search functionality .
 *   Include a functionality to upload the Resume in pdf format and do NLP to retrieve skills for predicting best jobs.
 
 ### Roadmap
-*   App would suggest positions available right now in careers websites that map the title and salaries that were suggested 
+*   Application would suggest positions available right now in careers websites that map the title and salaries that were suggested 
 *   Find what skill gaps to be updated to achieve the job position needs for a job seeker. 
 
+### Our Team:
 
+* Aiyanna Liz Mathew	
+* Anu Khandelwal 
+* Aruna Amaresan	
+* Aswathy Mohan
+* Pallavi Donwad
