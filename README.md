@@ -1,5 +1,5 @@
 # JobFitt
-### http://athenajobfitt.herokuapp.com/index
+### http://jobfitt.herokuapp.com/
 ![jobfit](Images/JobFit.png)
 
 ### Overview
