@@ -98,8 +98,8 @@ The Accuracy obtained for different algorithms is as mentioned below:
 
 ### Next Steps!
 
-*   Gather and create a large datasets to replace second step of our proprietery alogirthm with a Neural Network machine learning model like RandomForest and Deep Machine Learning.
-*   For Current Trends - Do web scraping from other website to get news and show on trends page.
+*   Gather and create a large datasets to replace second step of our proprietary algorithm with a Neural Network machine learning model like Random Forest and Deep Machine Learning.
+*   For Trends page - Do web scraping dynamically from other websites to get latest news and display on trends page .
 *   Provide Search functionality .
 *   Include a functionality to upload the Resume in pdf format and do NLP to retrieve skills for predicting best jobs.
 
